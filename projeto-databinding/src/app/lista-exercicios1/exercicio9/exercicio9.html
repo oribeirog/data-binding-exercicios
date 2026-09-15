@@ -1,0 +1,19 @@
+<h2>Exercício 9 - Controle de estoque</h2>
+
+<div *ngFor="let produto of produtos">
+
+  <h3>{{ produto.nome }}</h3>
+
+  <p>Quantidade em estoque: {{ produto.estoque }}</p>
+
+  <button
+    (click)="diminuirEstoque(produto)"
+    [disabled]="produto.estoque === 0">
+    -
+  </button>
+
+  <button (click)="aumentarEstoque(produto)">
+    +
+  </button>
+
+</div>
