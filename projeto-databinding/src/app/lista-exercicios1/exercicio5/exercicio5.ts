@@ -6,4 +6,10 @@ import { Component } from '@angular/core';
   styleUrl: './exercicio5.scss',
   templateUrl: './exercicio5.html',
 })
-export class Exercicio5 {}
+export class Exercicio5 {
+  curtidas: number = 0;
+
+  curtir(): void {
+    this.curtidas++;
+  }
+}
