@@ -1,0 +1,11 @@
+<h2>Exercício 6 - Contador completo</h2>
+
+<p>Quantidade: {{ quantidade }}</p>
+
+<button (click)="decrementar()" [disabled]="quantidade === 0">
+  -
+</button>
+
+<button (click)="incrementar()">
+  +
+</button>
