@@ -1,0 +1,60 @@
+<h2>Exercício 11 - Carrinho de compras</h2>
+
+<div *ngFor="let produto of produtos">
+
+  <h3>{{ produto.nome }}</h3>
+
+  <p>
+    Preço: R$ {{ produto.preco }}
+  </p>
+
+  <p>
+    Quantidade:
+
+    <button
+      (click)="diminuir(produto)"
+      [disabled]="produto.quantidade === 1">
+      -
+    </button>
+
+    {{ produto.quantidade }}
+
+    <button (click)="aumentar(produto)">
+      +
+    </button>
+  </p>
+
+  <p>
+    Total: R$
+    {{ produto.preco * produto.quantidade }}
+  </p>
+
+  <button (click)="adicionarAoCarrinho(produto)">
+    Adicionar ao carrinho
+  </button>
+
+
+</div>
+
+<h2>Carrinho</h2>
+
+<p>
+  Quantidade de produtos no carrinho:
+  {{ totalItensCarrinho }}
+</p>
+
+<p>
+  Preço total do carrinho:
+  R$ {{ totalCarrinho }}
+</p>
+
+<p *ngIf="carrinho.length === 0">
+  O carrinho está vazio.
+</p>
+
+<div *ngFor="let item of carrinho">
+  <p>
+    {{ item.quantidade }} x {{ item.nome }}
+    R$ {{ item.preco * item.quantidade }}
+  </p>
+</div>
