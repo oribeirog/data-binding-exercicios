@@ -1,0 +1,84 @@
+<main class="pagina-matricula">
+
+  <section class="matricula-card">
+
+    <div class="cabecalho">
+
+      <h2>Matrícula em curso</h2>
+
+      <p>
+        Preencha seus dados para realizar a matrícula.
+      </p>
+    </div>
+
+    <div class="campo">
+      <label for="nomeAluno">Nome do aluno</label>
+
+      <input
+        id="nomeAluno"
+        type="text"
+        [(ngModel)]="nomeAluno"
+        placeholder="Digite seu nome completo">
+    </div>
+
+    <br>
+
+    <div class="campo">
+      <label>Quantidade de disciplinas</label>
+
+      <div class="contador">
+
+        <button
+          class="botao-contador"
+          (click)="diminuirDisciplinas()"
+          [disabled]="quantidadeDisciplinas === 1">
+          −
+        </button>
+
+        <span>{{ quantidadeDisciplinas }}</span>
+
+        <button
+          class="botao-contador"
+          (click)="aumentarDisciplinas()">
+          +
+        </button>
+
+      </div>
+
+      <small>
+        A quantidade mínima é de 1 disciplina.
+      </small>
+    </div>
+
+    <div class="resumo">
+
+      <h3>Resumo da matrícula</h3>
+
+      <p>
+        <strong>Aluno:</strong>
+        {{ nomeAluno || 'Não informado' }}
+      </p>
+
+      <p>
+        <strong>Disciplinas:</strong>
+        {{ quantidadeDisciplinas }}
+      </p>
+
+    </div>
+
+    <button
+      class="botao-matricula"
+      [disabled]="nomeAluno.trim() === ''"
+      (click)="realizarMatricula()">
+      Realizar Matrícula
+    </button>
+
+    <p
+      class="mensagem-sucesso"
+      *ngIf="mensagem">
+      {{ mensagem }}
+    </p>
+
+  </section>
+
+</main>
