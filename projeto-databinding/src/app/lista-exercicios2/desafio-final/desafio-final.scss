@@ -1,0 +1,33 @@
+.container {
+  margin: 20px;
+}
+
+.projeto {
+  margin: 15px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.planejamento {
+  border-left: 5px solid blue;
+}
+
+.desenvolvimento {
+  border-left: 5px solid orange;
+}
+
+.testes {
+  border-left: 5px solid purple;
+}
+
+.concluido {
+  border-left: 5px solid green;
+}
+
+.nota-alta {
+  font-weight: bold;
+}
+
+.nota-baixa {
+  text-decoration: underline;
+}

@@ -1,0 +1,86 @@
+<div class="container">
+
+  <h2>Painel de Projetos</h2>
+
+  <p>Total de projetos: {{ projetos.length }}</p>
+
+  <p>Projetos concluídos: {{ projetosConcluidos() }}</p>
+
+  <button (click)="mostrarConcluidos = !mostrarConcluidos">
+    {{ mostrarConcluidos ? 'Ocultar concluídos' : 'Mostrar concluídos' }}
+  </button>
+
+  @if (projetos.length > 0) {
+
+    @for (projeto of projetos; track projeto.id) {
+
+      @if (mostrarConcluidos || projeto.status !== 'concluído') {
+
+        <div
+          class="projeto"
+          [ngClass]="{
+            'planejamento': projeto.status === 'planejamento',
+            'desenvolvimento': projeto.status === 'desenvolvimento',
+            'testes': projeto.status === 'testes',
+            'concluido': projeto.status === 'concluído'
+          }"
+        >
+
+          <p>
+            <strong>{{ $index + 1 }} - {{ projeto.titulo }}</strong>
+          </p>
+
+          <p>Equipe: {{ projeto.equipe }}</p>
+
+          <p>Status: {{ projeto.status }}</p>
+
+          @if (projeto.status === 'concluído') {
+
+            @if (projeto.nota !== null) {
+              <p>Nota: {{ projeto.nota }}</p>
+            } @else {
+              <p>
+                Nota ainda não definida
+                <br><br>
+                Projeto entregue
+              </p>
+            }
+
+            @if (projeto.nota !== null && projeto.nota >= 7) {
+              <p class="nota-alta">
+                Nota igual ou superior a 7
+                <br><br>
+                Projeto entregue
+              </p>
+            }
+
+            @if (projeto.nota !== null && projeto.nota < 6) {
+              <p class="nota-baixa">
+                Nota inferior a 6
+                <br><br>
+                Projeto entregue
+              </p>
+            }
+          }
+
+          <button (click)="alterarStatus(projeto)">
+            Alterar status
+          </button>
+
+        </div>
+
+      }
+
+    } @empty {
+
+      <p>Nenhum projeto cadastrado.</p>
+
+    }
+
+  } @else {
+
+    <p>Nenhum projeto cadastrado.</p>
+
+  }
+
+</div>
