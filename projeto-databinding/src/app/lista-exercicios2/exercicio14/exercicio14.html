@@ -1,0 +1,87 @@
+<div class="container">
+
+  <h2>Exercício 6 - Lista de nomes</h2>
+
+  @if (nomes.length > 0) {
+
+    @for (nome of nomes; track $index) {
+      <p>
+        {{ $index + 1 }} - {{ nome }}
+      </p>
+    }
+
+  } @else {
+
+    <p>Nenhum nome cadastrado.</p>
+
+  }
+
+
+  <h2>Exercício 11 - Produtos disponíveis</h2>
+
+  @if (produtos.length > 0) {
+
+    @for (produto of produtos; track produto.id) {
+
+      @if (produto.quantidade > 0) {
+        <p>
+          {{ produto.nome }} - Quantidade: {{ produto.quantidade }}
+        </p>
+      }
+
+    } @empty {
+
+      <p>Nenhum produto encontrado.</p>
+
+    }
+
+  } @else {
+
+    <p>Nenhum produto cadastrado.</p>
+
+  }
+
+
+  <h2>Exercício 13 - Lista de tarefas</h2>
+
+  @if (tarefas.length > 0) {
+
+    @for (tarefa of tarefas; track tarefa.id) {
+
+      <div class="tarefa">
+
+        <p>{{ tarefa.titulo }}</p>
+        <p>Responsável: {{ tarefa.responsavel }}</p>
+
+        @if (tarefa.concluida) {
+          <p>Concluída</p>
+        } @else {
+          <p>Pendente</p>
+        }
+
+      </div>
+
+    } @empty {
+
+      <p>Nenhuma tarefa cadastrada.</p>
+
+    }
+
+  } @else {
+
+    <p>Não existem tarefas.</p>
+
+  }
+
+
+  <p>
+  1. A sintaxe moderna deixa as condições e repetições mais organizadas
+  dentro do próprio HTML.
+</p>
+
+<p>
+  2. A repetição moderna permite utilizar o track para identificar os itens
+  e também permite tratar listas vazias.
+</p>
+
+</div>
