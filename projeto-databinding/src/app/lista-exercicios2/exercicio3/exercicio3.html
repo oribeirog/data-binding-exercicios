@@ -1,0 +1,22 @@
+<h2>Verificação de idade</h2>
+
+<p>Idade: {{ idade }}</p>
+
+<button (click)="diminuirIdade()">Diminuir</button>
+<button (click)="aumentarIdade()">Aumentar</button>
+
+<p *ngIf="idade < 12">
+  Criança
+</p>
+
+<p *ngIf="idade >= 12 && idade <= 17">
+  Adolescente
+</p>
+
+<p *ngIf="idade >= 18 && idade <= 59">
+  Adulto
+</p>
+
+<p *ngIf="idade >= 60">
+  Idoso
+</p>
