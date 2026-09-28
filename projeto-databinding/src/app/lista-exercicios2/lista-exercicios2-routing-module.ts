@@ -10,6 +10,7 @@ import { Exercicio9 } from './exercicio9/exercicio9';
 import { Exercicio10 } from './exercicio10/exercicio10';
 import { Exercicio11 } from './exercicio11/exercicio11';
 import { Exercicio12 } from './exercicio12/exercicio12';
+import { Exercicio13 } from './exercicio13/exercicio13';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path: 'exercicio10', component: Exercicio10},
   {path: 'exercicio11', component: Exercicio11},
   {path: 'exercicio12', component: Exercicio12},
+  {path: 'exercicio13', component: Exercicio13},
 ];
 
 @NgModule({
